@@ -9,11 +9,11 @@ public class BinarySearchAlgorithm implements ISearchAlgorithm{
             index = (begin+end)/2;
             if(target == arr[index]) return index;
             if(target>arr[index]) {
-                begin = index;
+                begin = index+1;
             } else {
-                end = index;
+                end = index-1;
             }
-        } while(arr[index] != target || begin == end);
-        return index;
+        } while(begin <= end);
+        return -1;
     }
 }

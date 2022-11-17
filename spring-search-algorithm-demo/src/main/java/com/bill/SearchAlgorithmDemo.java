@@ -10,11 +10,15 @@ import java.time.Instant;
 @Slf4j
 public class SearchAlgorithmDemo {
     public static void main(String[] args) {
-        int arr[] = randomNumber(20);
+        int n = 5000000;
+        int arr[] = randomNumber(n);
+        int target = (int)(Math.random() * n);
         Arrays.sort(arr);
+
         log.info("====");
+        log.info("before search, arr: {}, target: {}", arr, target);
         Instant startTime = Instant.now();
-        int index = SearchFactory.searchFactory(SearchAlgorithmEnum.BinarySearch).searchIndex(arr, 100);
+        int index = SearchFactory.searchFactory(SearchAlgorithmEnum.BinarySearch).searchIndex(arr, target);
         Instant endTime = Instant.now();
         log.info("====");
         log.info("after search : {}", index);
@@ -24,7 +28,7 @@ public class SearchAlgorithmDemo {
     private static int[] randomNumber(int n) {
         int[] arr = new int[n];
         for(int i = 0; i < n; i++) {
-            arr[i] = (int)(Math.random() * n);
+            arr[i] = i;
         }
         return arr;
     }
