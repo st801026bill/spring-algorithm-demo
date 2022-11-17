@@ -1,6 +1,7 @@
 package com.bill;
 
 import com.bill.enums.SearchAlgorithmEnum;
+import com.bill.search.BinarySearchAlgorithm;
 import com.bill.search.ISearchAlgorithm;
 import com.bill.search.LinearSearchAlgorithm;
 
@@ -9,6 +10,8 @@ public class SearchFactory {
         switch (enums) {
             case LinearSearch:
                 return new LinearSearchAlgorithm();
+            case BinarySearch:
+                return new BinarySearchAlgorithm();
         }
         return null;
     }

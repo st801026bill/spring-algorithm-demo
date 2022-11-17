@@ -3,13 +3,17 @@ package com.bill.search;
 public class BinarySearchAlgorithm implements ISearchAlgorithm{
     @Override
     public int searchIndex(int[] arr, int target) {
-
         int begin = 0, end = arr.length-1;
-        int mid = arr.length/2;
+        int index = 0;
         do {
-            if(target == arr[mid]) return mid;
-
-        } while(arr[i] != target);
-        return i;
+            index = (begin+end)/2;
+            if(target == arr[index]) return index;
+            if(target>arr[index]) {
+                begin = index;
+            } else {
+                end = index;
+            }
+        } while(arr[index] != target || begin == end);
+        return index;
     }
 }

@@ -1,6 +1,7 @@
 package com.bill;
 
 import com.bill.enums.SearchAlgorithmEnum;
+import java.util.Arrays;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.Duration;
@@ -9,11 +10,11 @@ import java.time.Instant;
 @Slf4j
 public class SearchAlgorithmDemo {
     public static void main(String[] args) {
-        int arr[] = randomNumber(9999999);
-        log.info("before search : {}", arr);
+        int arr[] = randomNumber(20);
+        Arrays.sort(arr);
         log.info("====");
         Instant startTime = Instant.now();
-        int index = SearchFactory.searchFactory(SearchAlgorithmEnum.LinearSearch).searchIndex(arr, 100);
+        int index = SearchFactory.searchFactory(SearchAlgorithmEnum.BinarySearch).searchIndex(arr, 100);
         Instant endTime = Instant.now();
         log.info("====");
         log.info("after search : {}", index);
