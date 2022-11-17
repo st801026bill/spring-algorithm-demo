@@ -10,7 +10,8 @@ import java.time.Instant;
 @Slf4j
 public class SearchAlgorithmDemo {
     public static void main(String[] args) {
-        int n = 5000000;
+        int n = 20;
+//        int arr[] = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26};
         int arr[] = randomNumber(n);
         int target = (int)(Math.random() * n);
         Arrays.sort(arr);
@@ -18,7 +19,7 @@ public class SearchAlgorithmDemo {
         log.info("====");
         log.info("before search, arr: {}, target: {}", arr, target);
         Instant startTime = Instant.now();
-        int index = SearchFactory.searchFactory(SearchAlgorithmEnum.BinarySearch).searchIndex(arr, target);
+        int index = SearchFactory.searchFactory(SearchAlgorithmEnum.InterpolationSearch).searchIndex(arr, target);
         Instant endTime = Instant.now();
         log.info("====");
         log.info("after search : {}", index);

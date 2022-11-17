@@ -5,7 +5,7 @@ public class BinarySearchAlgorithm implements ISearchAlgorithm{
     public int searchIndex(int[] arr, int target) {
         int begin = 0, end = arr.length-1;
         int index = 0;
-        do {
+        while(begin <= end) {
             index = (begin+end)/2;
             if(target == arr[index]) return index;
             if(target>arr[index]) {
@@ -13,7 +13,8 @@ public class BinarySearchAlgorithm implements ISearchAlgorithm{
             } else {
                 end = index-1;
             }
-        } while(begin <= end);
+        }
+
         return -1;
     }
 }
